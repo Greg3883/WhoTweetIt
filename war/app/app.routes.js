@@ -5,12 +5,13 @@ angular.module('whoTweetItApp')
             templateUrl : "app/components/home/views/home.view.html"
         })
         
-        .when("/game", {
-        	templateUrl : "app/components/home/views/home.game.html"
+        .when("/category", {
+        	templateUrl : "app/components/home/views/home.category.html"
         })
         
-        .when("/difficulty", {
-        	templateUrl : "app/components/home/views/difficulty.html"
+        .when("/difficulty/:category", {
+        	templateUrl : "app/components/home/views/difficulty.html",
+        	controller: "DifficultyController"
         })
         
         $locationProvider.hashPrefix('');

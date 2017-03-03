@@ -20,14 +20,17 @@
 	<script src="/assets/libs/angular-google-gapi-1.0.1/dist/angular-google-gapi.min.js"></script>
 	<script src="/app/app.config.js"></script>
 	<script src="/app/app.routes.js"></script>
+	<script src="/app/app.function.js"></script>
 	<script src="/app/app.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 	<div class="row">
-		<header class="col-lg-12">
+		<header class="col-lg-12" ng-controller="HeaderController">
 			<div class="col-lg-2"><img src="/assets/images/logo_header.png" id="logo_header"></div>
-			<div class="col-lg-offset-8 col-lg-2"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
+			<div class="col-lg-offset-4 col-lg-2"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
+			<div class="col-lg-2"><a href="#/" onclick="signOut();">Sign out</a></div>
+			<div class="col-lg-2"><p class="text_white">{{ userName }}</p></div>
 		</header>
 		<div ng-view></div>
 	</div>
