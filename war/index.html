@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app=whoTweetItApp>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Who Tweet It ?</title>
+	<meta name="description" content="Little game based on twitter.">
+	<meta name="keywords" content="game, tweet, twitter">
+	<meta name="author" content="Grégoire Bejjaji">
+	<link rel="stylesheet" href="/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/css/all.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<script src="/assets/libs/jquery-1.11.2.min.js"></script>
+	<script src="/assets/libs/bootstrap.js"></script>
+	<script src="/assets/libs/jquery.main.js"></script>
+	<script src="/assets/libs/angular.js"></script>
+	<script src="/assets/libs/angular-route.js"></script>
+	<script src="/assets/libs/angular-google-gapi-1.0.1/dist/angular-google-gapi.min.js"></script>
+	<script src="/app/app.config.js"></script>
+	<script src="/app/app.routes.js"></script>
+	<script src="/app/app.js"></script>
+</head>
+<body>
+	<div class="row">
+		<header class="col-lg-12">
+			<div class="col-lg-2"><img src="/assets/images/logo_header.png" id="logo_header"></div>
+		</header>
+		<div ng-view></div>
+	</div>
+	<footer>
+		<!--<p id="footer_text">Who tweet it ? - Grégoire BEJJAJI, Théo ARCOURT & Boubaker MENTACHE</p>-->
+	</footer>
+</body>
+</html>

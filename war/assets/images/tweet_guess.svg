@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="72.564941mm"
+   height="97.20591mm"
+   viewBox="0 0 72.564939 97.205912"
+   version="1.1"
+   id="svg3787"
+   inkscape:version="0.92.1 15371"
+   sodipodi:docname="tweetguess.svg">
+  <defs
+     id="defs3781">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath57">
+      <g
+         inkscape:label="Clip"
+         id="use59">
+        <a
+           id="a3938"
+           transform="translate(164.9053,-18.976136)">
+          <g
+             id="g3936">
+            <text
+               xml:space="preserve"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20.26122665px;line-height:1.25;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#1da1f2;fill-opacity:1;stroke:none;stroke-width:0.50653183"
+               x="109.17453"
+               y="250.86972"
+               id="text3934"
+               transform="scale(0.91268232,1.0956715)"><tspan
+                 sodipodi:role="line"
+                 x="109.17453"
+                 y="250.86972"
+                 id="tspan3932"
+                 style="stroke-width:0.50653183"><tspan
+                   x="109.17453"
+                   y="250.86972"
+                   id="tspan3930"
+                   style="stroke-width:0.50653183">TweetStorming</tspan></tspan></text>
+          </g>
+        </a>
+      </g>
+    </clipPath>
+    <font
+       horiz-adv-x="1024"
+       id="font61"
+       inkscape:label="fonte 1"
+       horiz-origin-x="0"
+       horiz-origin-y="0"
+       vert-origin-x="45"
+       vert-origin-y="90"
+       vert-adv-y="90">
+      <font-face
+         units-per-em="1024"
+         id="font-face63"
+         font-family="SVGFont 1" />
+      <missing-glyph
+         d="M0,0h1000v1024h-1000z"
+         id="missing-glyph65" />
+    </font>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-63.491287"
+     inkscape:cy="418.81672"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g3851"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:snap-grids="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata3784">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-22.908699,-183.28882)">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-121.74996,69.061514)"
+       id="layer1-6" />
+    <g
+       id="g3851"
+       transform="matrix(0.70369554,0,0,0.91267526,6.2735123,-59.436066)">
+      <g
+         id="Layer_x0020_1-2"
+         style="clip-rule:evenodd;fill:#1da1f2;fill-opacity:1;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+         transform="matrix(5.6906553,0,0,4.1748127,-83.29563,234.3488)">
+        <metadata
+           id="CorelCorpID_0Corel-Layer-9" />
+        <path
+           style="fill:#1da1f2;fill-opacity:1"
+           id="path3744-1"
+           d="m 29.898,26.5722 h -4.3921 c -0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044 l -4.4391,-0.5527 c 0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752 z m -4.3921,6.5087 V 28.242 h 4.8389 v 4.8389 z"
+           class="fil0"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>

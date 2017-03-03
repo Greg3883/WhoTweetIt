@@ -1,0 +1,109 @@
+body {
+    background: url("/assets/images/pattern.jpg") repeat;
+}
+
+#home_title {
+	font-size: 8vw;
+	font-family:LemonMilk;
+	text-align: center;
+}
+
+#home_subtitle {
+	font-size: 2vw;
+	font-family:Champagne;
+	text-align: center;
+}
+
+#footer_text {
+	font-size: 1vw;
+	color:#ecf0f1;
+	font-family:ChampagneItalic;
+	text-align: center;
+}
+
+#button_main_play{
+	border:3px groove #ecf0f1;
+	text-align:center;
+	font-family: Champagne;
+	font-size:2vw;
+	color:#ecf0f1;
+	height:4vw;
+	width:8vw;
+	display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+#button_main_play:hover {
+	border:3px solid #2c3e50;
+    background-color:#ecf0f1;
+	text-align:center;
+	color:#2c3e50;
+	height:4vw;
+	width:8vw;
+	display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+#logo_header {
+	margin-top:1vw;
+	margin-left:1vw;
+	width:3vw;
+}
+
+.category_div {
+	color:#1B1B1B;
+	background-color:#ecf0f1;
+	border-radius: 10px;
+	margin:1vw;
+	height:12vw;
+	text-align:center
+}
+
+.category_div:hover {
+	color:#ecf0f1;
+	background-color:#1B1B1B;
+	border:3px solid #ecf0f1;
+	border-radius: 10px;
+	margin:1vw;
+	height:12vw;
+	text-align:center
+}
+
+.text_blue {
+	color:#3498db;
+}
+
+.margin_50 {
+	margin-top: 10vw;
+}
+
+.margin_10 {
+	margin-top: 2vw;
+}
+
+
+.text_red {
+	color:#e74c3c;
+}
+
+.text_white {
+	color:#ecf0f1;
+}
+
+
+@font-face {
+    font-family: LemonMilk;
+    src: url("/assets/fonts/LemonMilk.otf");
+}
+
+@font-face {
+    font-family: ChampagneItalic;
+    src: url("/assets/fonts/ChampagneItalic.ttf");
+}
+
+@font-face {
+    font-family: Champagne;
+    src: url("/assets/fonts/Champagne.ttf");
+}
