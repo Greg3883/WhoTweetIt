@@ -14,5 +14,10 @@ angular.module('whoTweetItApp')
         	controller: "DifficultyController"
         })
         
+        .when("/game/:category/:difficulty", {
+        	templateUrl : "app/components/home/views/game.html",
+        	controller: "GameController"
+        })
+        
         $locationProvider.hashPrefix('');
 });

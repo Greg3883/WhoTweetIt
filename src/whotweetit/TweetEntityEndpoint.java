@@ -19,7 +19,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-@Api(name = "tweetentityendpoint", namespace = @ApiNamespace(ownerDomain = "tweetstorming.com", ownerName = "tweetstorming.com", packagePath = ""))
+@Api(name = "tweetentityendpoint", namespace = @ApiNamespace(ownerDomain = "mycompany.com", ownerName = "mycompany.com", packagePath = "services"))
 public class TweetEntityEndpoint {
 
 	/**

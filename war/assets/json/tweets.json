@@ -1,0 +1,16 @@
+{
+  "tweets": [
+    { "id": 1,
+      "content": "Avez-vous bien compris #Macron hier soir ? Il propose en fait de passer à la retraite par points ! Le réveil, c'est quand ?",
+      "author": "Jean-Luc Mélenchon",
+      "date" : "02/12/2020",
+      "category" : "media"
+    },
+    { "id": 2,
+      "content": "This is a test",
+      "author": "Grégoire Bejjaji",
+      "date" : "22/02/2020",
+      "category" : "sport"
+    }
+  ]
+ }

@@ -18,7 +18,13 @@ public class ScoreEntity {
 	String name; // user name (or pseudo)
 	
 	@Persistent
-	Integer time; // time in miliseconds
+	Integer point; // time in miliseconds
+	
+	@Persistent
+	String category; // Category
+	
+	@Persistent
+	String level; // Level
 	
 	@Persistent
 	Date date; // date of the score
@@ -35,11 +41,23 @@ public class ScoreEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getTime() {
-		return time;
+	public String getCategory() {
+		return category;
 	}
-	public void setTime(Integer time) {
-		this.time = time;
+	public void setCategory(String category) {
+		this.name = category;
+	}
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
+	public Integer getPoint() {
+		return point;
+	}
+	public void setPoint(Integer point) {
+		this.point = point;
 	}
 	public Date getDate() {
 		return date;

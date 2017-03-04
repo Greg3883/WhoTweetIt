@@ -1,6 +1,23 @@
 var app = angular.module('whoTweetItApp');
 var refreshTime = 20;
 
+//Permet de passer des variable entre 2 controlleurs
+app.factory('Data', function () {
+
+    var data = {
+        FirstName: ''
+    };
+
+    return {
+        getFirstName: function () {
+            return data.FirstName;
+        },
+        setFirstName: function (firstName) {
+            data.FirstName = firstName;
+        }
+    };
+});
+
 
 //Controler du header
 app.controller('HeaderController', ['$scope', function($scope) {
@@ -17,27 +34,16 @@ app.controller('HeaderController', ['$scope', function($scope) {
 
 //Controller du choix de la diffuclté
 app.controller('DifficultyController', ['$scope','$routeParams', function($scope, $routeParams) {
-	  var category = $routeParams.category;
-	  //passCat.set(category);
-	  console.log('Cat: ' + category);
+	  $scope.category = $routeParams.category;
+	 
+}]);
+
+//Controller du jeu
+app.controller('GameController', ['$scope','$routeParams', function($scope, $routeParams) {
+	  $scope.difficulty = $routeParams.difficulty;
+	  $scope.category = $routeParams.category;
 }]);
 
 
 
-//Permet de passer des variable entre 2 controlleurs
-app.factory('passCat', function() {
- var catSaved = {}
- function set(data) {
-   catSaved = data;
- }
- function get() {
-  return catSaved;
- }
-
- return {
-  set: set,
-  get: get
- }
-
-});
 
