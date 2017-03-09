@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 public class WhoTweetItServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
-		resp.getWriter().print("lol");
+		// The factory instance is re-useable and thread safe.
+	    //fdsfdsfdsfdsfsdfds
 	}
 }
