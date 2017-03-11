@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
+import twitter4j.Paging;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -19,6 +20,7 @@ import twitter4j.conf.ConfigurationBuilder;
 public class WhoTweetItServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
+		//Authentification à notre app twitter
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		cb.setDebugEnabled(true)
 			  .setOAuthConsumerKey("IYUoQdqaJZZaiz9n4AiDU1UrS")
@@ -27,14 +29,17 @@ public class WhoTweetItServlet extends HttpServlet {
 			  .setOAuthAccessTokenSecret("Llmve5ueG9ALDen7auROu1sn06NKsbcwlP9qBgj3WjBw3");
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		Twitter twitter = tf.getInstance();
+		
+		//Requete
 		try {
-			Query query = new Query("JLMelenchon");
-			QueryResult result;
-			result = twitter.search(query);
-			List<Status> tweets = result.getTweets();
-			System.out.println(tweets);
+			Paging paging = new Paging(1, 100);
+			List<Status> tweets = twitter.getUserTimeline("JLMelenchon",paging);
 		    for (Status tweet : tweets) {
-		    	resp.getWriter().print("@" + tweet.getUser().getScreenName() + ":" + tweet.getText());
+		    	resp.getWriter().println("@" + tweet.getUser().getScreenName());
+		    	resp.getWriter().println("Nom : " +  tweet.getUser().getName());
+		    	resp.getWriter().println("Tweet :" + tweet.getText());
+		    	resp.getWriter().println("Date : " + tweet.getCreatedAt());
+		    	resp.getWriter().println("");
 		    }
 		} catch (TwitterException e) {
 			// TODO Auto-generated catch block
