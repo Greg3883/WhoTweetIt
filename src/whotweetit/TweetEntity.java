@@ -18,7 +18,10 @@ public class TweetEntity {
 	String content; // content of the tweet
 	
 	@Persistent
-	String author; // author of the tweet
+	String authorScreen; // author of the tweet
+	
+	@Persistent
+	String authorName; // author of the tweet
 	
 	@Persistent
 	Date date; // date of the tweet
@@ -38,11 +41,17 @@ public class TweetEntity {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getAuthor() {
-		return author;
+	public String getAuthorScreen() {
+		return authorScreen;
 	}
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthorScreen(String authorScreen) {
+		this.authorScreen = authorScreen;
+	}
+	public String getAuthorName() {
+		return authorName;
+	}
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
 	}
 	public Date getDate() {
 		return date;

@@ -40,6 +40,25 @@ app.controller('DifficultyController', ['$scope','$routeParams', function($scope
 
 //Controller du jeu
 app.controller('GameController', ['$scope','$routeParams', function($scope, $routeParams) {
+	var init = function() {
+		var rootApi = '1-dot-whotweetit-158715.appspot.com/_ah/api/';
+		gapi.client.load('tweetentityendpoint', 'v1', function() {
+			console.log("todos api loaded");
+
+			
+			gapi.client.tweetenityendpoint.listTweet().execute(
+				      function(resp) {
+				        if (!resp.code) {
+				          resp.items = resp.items || [];
+				          for (var i = 0; i < resp.items.length; i++) {
+				        	  console.log(resp.items[i]);
+				          }
+				        }
+				      });
+		}, rootApi);
+	}
+	
+	
 	  $scope.difficulty = $routeParams.difficulty;
 	  $scope.category = $routeParams.category;
 }]);
