@@ -1,8 +1,13 @@
 package whotweetit;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -41,9 +46,49 @@ public class WhoTweetItServlet extends HttpServlet {
 		TweetEntityEndpoint tEp = new TweetEntityEndpoint();
 		TweetEntity newTweet = new TweetEntity();
 		Long i = 1L;
-		String[] MediaTest = {"JLMelenchon","EmmanuelMacron","MLP_Officiel","benoithamon","fhollande"};
+		String MediaTest[] = new String[99999];// = {"JLMelenchon","EmmanuelMacron","MLP_Officiel","benoithamon","fhollande"};
+		
+		
+		String chaine="";
+		//String fichier ="C:\\Users\\Théo\\Desktop\\media.txt";
+		String fichier = "/WEB-INF/media.txt";
+		
+		
+		
+		
 		
 
+				
+				
+		int nbr = 0;		
+		//lecture du fichier texte	
+		try{
+			/*InputStream ips=new FileInputStream(fichier); 
+			InputStreamReader ipsr=new InputStreamReader(ips);
+			BufferedReader br=new BufferedReader(ipsr);*/
+			
+
+			//InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream("/WEB-INF/media.txt"); 
+			InputStream inputStream = new FileInputStream(new File("WEB-INF/media.txt"));
+
+			BufferedReader br=new BufferedReader(new InputStreamReader(inputStream)); 
+			String ligne;
+			
+			//System.out.println("lol");
+			while ((ligne=br.readLine())!=null){
+				System.out.println(nbr);
+				MediaTest[nbr]=ligne;
+				//chaine+=ligne+"\n";
+				nbr++;
+				//resp.getWriter().println(ligne);
+			}
+			br.close(); 
+		}		
+		catch (Exception e){
+			System.out.println(e.toString());
+		}
+		
+		//resp.getWriter().println(chaine);
 		//Requete
 		//Suppression des anciens tweet
 		for(long x = 1; x <= 100; x++)
@@ -60,7 +105,7 @@ public class WhoTweetItServlet extends HttpServlet {
 
 		System.out.println("<------------- HERE1 ------------>");
 		//Requete
-		for(int z = 0 ; z < MediaTest.length ; z++)
+		for(int z = 0 ; z < nbr - 1 ; z++)
 		{
 			try {
 				Paging paging = new Paging(1, 10);
