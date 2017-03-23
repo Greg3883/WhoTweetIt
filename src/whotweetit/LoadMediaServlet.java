@@ -31,7 +31,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 
 @SuppressWarnings("serial")
-public class WhoTweetItServlet extends HttpServlet {
+public class LoadMediaServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
 		//Authentification à notre app twitter
@@ -85,7 +85,7 @@ public class WhoTweetItServlet extends HttpServlet {
 		//resp.getWriter().println(chaine);
 		//Requete
 		//Suppression des anciens tweet
-		for(long x = 1; x <= 100; x++)
+		for(long x = 1; x <= 15; x++)
 		{
 			System.out.println("Lu : "+x);
 			try{
@@ -99,10 +99,10 @@ public class WhoTweetItServlet extends HttpServlet {
 
 		System.out.println("<------------- HERE1 ------------>");
 		//Requete
-		for(int z = 0 ; z < nbr - 1 ; z++)
+		for(int z = 0 ; z <= nbr - 1 ; z++)
 		{
 			try {
-				Paging paging = new Paging(1, 10);
+				Paging paging = new Paging(1, 3);
 				List<Status> tweets = twitter.getUserTimeline(MediaTest[z],paging);
 			    for (Status tweet : tweets) {
 			    	newTweet.setId(i);
@@ -112,6 +112,7 @@ public class WhoTweetItServlet extends HttpServlet {
 			    	newTweet.setCategory("Media");
 			    	newTweet.setDate(tweet.getCreatedAt());
 			    	tEp.insertTweetEntity(newTweet);
+			    	System.out.println(tweet.getUser().getName());
 			    	resp.getWriter().println("@" + tweet.getUser().getScreenName());
 			    	resp.getWriter().println("Nom : " +  tweet.getUser().getName());
 			    	resp.getWriter().println("Tweet :" + tweet.getText());

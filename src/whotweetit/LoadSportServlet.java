@@ -31,7 +31,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 
 @SuppressWarnings("serial")
-public class WhoTweetItServlet extends HttpServlet {
+public class LoadSportServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
 		//Authentification à notre app twitter
@@ -45,13 +45,13 @@ public class WhoTweetItServlet extends HttpServlet {
 		Twitter twitter = tf.getInstance();
 		TweetEntityEndpoint tEp = new TweetEntityEndpoint();
 		TweetEntity newTweet = new TweetEntity();
-		Long i = 1L;
+		Long i = 16L;
 		String MediaTest[] = new String[99999];// = {"JLMelenchon","EmmanuelMacron","MLP_Officiel","benoithamon","fhollande"};
 		
 		
 		String chaine="";
 		//String fichier ="C:\\Users\\Théo\\Desktop\\media.txt";
-		String fichier = "/WEB-INF/media.txt";
+		String fichier = "/WEB-INF/sport.txt";
 		
 			
 		int nbr = 0;		
@@ -63,7 +63,7 @@ public class WhoTweetItServlet extends HttpServlet {
 			
 
 			//InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream("/WEB-INF/media.txt"); 
-			InputStream inputStream = new FileInputStream(new File("WEB-INF/media.txt"));
+			InputStream inputStream = new FileInputStream(new File("WEB-INF/sport.txt"));
 
 			BufferedReader br=new BufferedReader(new InputStreamReader(inputStream)); 
 			String ligne;
@@ -85,7 +85,7 @@ public class WhoTweetItServlet extends HttpServlet {
 		//resp.getWriter().println(chaine);
 		//Requete
 		//Suppression des anciens tweet
-		for(long x = 1; x <= 100; x++)
+		for(long x = 16; x <= 30; x++)
 		{
 			System.out.println("Lu : "+x);
 			try{
@@ -102,7 +102,7 @@ public class WhoTweetItServlet extends HttpServlet {
 		for(int z = 0 ; z < nbr - 1 ; z++)
 		{
 			try {
-				Paging paging = new Paging(1, 10);
+				Paging paging = new Paging(1, 3);
 				List<Status> tweets = twitter.getUserTimeline(MediaTest[z],paging);
 			    for (Status tweet : tweets) {
 			    	newTweet.setId(i);

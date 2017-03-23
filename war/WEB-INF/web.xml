@@ -3,9 +3,41 @@
 		<servlet-name>WhoTweetIt</servlet-name>
 		<servlet-class>whotweetit.WhoTweetItServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LoadMusic</servlet-name>
+		<servlet-class>whotweetit.LoadMusicServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoadMedia</servlet-name>
+		<servlet-class>whotweetit.LoadMediaServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoadSport</servlet-name>
+		<servlet-class>whotweetit.LoadSportServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoadCinema</servlet-name>
+		<servlet-class>whotweetit.LoadCinemaServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>WhoTweetIt</servlet-name>
 		<url-pattern>/whotweetit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadMedia</servlet-name>
+		<url-pattern>/loadmedia</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadSport</servlet-name>
+		<url-pattern>/loadsport</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadMusic</servlet-name>
+		<url-pattern>/loadmusic</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadCinema</servlet-name>
+		<url-pattern>/loadcinema</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
