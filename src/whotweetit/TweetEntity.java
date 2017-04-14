@@ -24,6 +24,9 @@ public class TweetEntity {
 	String authorName; // author of the tweet
 	
 	@Persistent
+	String urlImgAuthor; // author of the tweet
+	
+	@Persistent
 	Date date; // date of the tweet
 	
 	@Persistent
@@ -52,6 +55,12 @@ public class TweetEntity {
 	}
 	public void setAuthorName(String authorName) {
 		this.authorName = authorName;
+	}
+	public String getUrlImgAuhtor() {
+		return urlImgAuthor;
+	}
+	public void setUrlImgAuthor(String urlName) {
+		this.urlImgAuthor = urlName;
 	}
 	public Date getDate() {
 		return date;

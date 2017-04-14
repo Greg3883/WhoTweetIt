@@ -28,59 +28,6 @@
   "ownerName" : "mycompany.com",
   "packagePath" : "services",
   "methods" : {
-    "tweetentityendpoint.updateTweetEntity" : {
-      "path" : "tweetentity",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "whotweetit.TweetEntityEndpoint.updateTweetEntity",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "tweetentityendpoint.removeTweetEntity" : {
-      "path" : "tweetentity/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "whotweetit.TweetEntityEndpoint.removeTweetEntity",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
-      }
-    },
-    "tweetentityendpoint.insertTweetEntity" : {
-      "path" : "tweetentity",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "whotweetit.TweetEntityEndpoint.insertTweetEntity",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "tweetentityendpoint.getTweetEntity" : {
       "path" : "tweetentity/{id}",
       "httpMethod" : "GET",
@@ -126,6 +73,59 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
+    },
+    "tweetentityendpoint.removeTweetEntity" : {
+      "path" : "tweetentity/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "whotweetit.TweetEntityEndpoint.removeTweetEntity",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "tweetentityendpoint.updateTweetEntity" : {
+      "path" : "tweetentity",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "whotweetit.TweetEntityEndpoint.updateTweetEntity",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "tweetentityendpoint.insertTweetEntity" : {
+      "path" : "tweetentity",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "whotweetit.TweetEntityEndpoint.insertTweetEntity",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
     }
   },
   "descriptor" : {
@@ -147,11 +147,17 @@
           "authorName" : {
             "type" : "string"
           },
+          "urlImgAuthor" : {
+            "type" : "string"
+          },
           "date" : {
             "type" : "string",
             "format" : "date-time"
           },
           "category" : {
+            "type" : "string"
+          },
+          "urlImgAuhtor" : {
             "type" : "string"
           }
         }
@@ -173,24 +179,6 @@
       }
     },
     "methods" : {
-      "whotweetit.TweetEntityEndpoint.updateTweetEntity" : {
-        "request" : {
-          "$ref" : "TweetEntity"
-        },
-        "response" : {
-          "$ref" : "TweetEntity"
-        }
-      },
-      "whotweetit.TweetEntityEndpoint.removeTweetEntity" : {
-      },
-      "whotweetit.TweetEntityEndpoint.insertTweetEntity" : {
-        "request" : {
-          "$ref" : "TweetEntity"
-        },
-        "response" : {
-          "$ref" : "TweetEntity"
-        }
-      },
       "whotweetit.TweetEntityEndpoint.getTweetEntity" : {
         "response" : {
           "$ref" : "TweetEntity"
@@ -199,6 +187,24 @@
       "whotweetit.TweetEntityEndpoint.listTweetEntity" : {
         "response" : {
           "$ref" : "CollectionResponse_TweetEntity"
+        }
+      },
+      "whotweetit.TweetEntityEndpoint.removeTweetEntity" : {
+      },
+      "whotweetit.TweetEntityEndpoint.updateTweetEntity" : {
+        "request" : {
+          "$ref" : "TweetEntity"
+        },
+        "response" : {
+          "$ref" : "TweetEntity"
+        }
+      },
+      "whotweetit.TweetEntityEndpoint.insertTweetEntity" : {
+        "request" : {
+          "$ref" : "TweetEntity"
+        },
+        "response" : {
+          "$ref" : "TweetEntity"
         }
       }
     }

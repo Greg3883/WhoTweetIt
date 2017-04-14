@@ -108,6 +108,7 @@ public class LoadMediaServlet extends HttpServlet {
 			    	newTweet.setId(i);
 			    	newTweet.setAuthorName(tweet.getUser().getName());
 			    	newTweet.setAuthorScreen(tweet.getUser().getScreenName());
+			    	newTweet.setUrlImgAuthor(tweet.getUser().getProfileImageURL());;
 			    	newTweet.setContent(tweet.getText());
 			    	newTweet.setCategory("Media");
 			    	newTweet.setDate(tweet.getCreatedAt());
