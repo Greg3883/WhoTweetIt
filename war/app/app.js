@@ -156,7 +156,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 			   
 			   load();*/
 			  
-			  
+			  /*blabalbal*/
 		
 		
 			
