@@ -102,8 +102,14 @@ public class WhoTweetItServlet extends HttpServlet {
 			}
 		}
 		
-
+		String contenuquiz = "\"category\" : \"music\",\"";
 		System.out.println("<------------- HERE1 ------------>");
+		
+		
+		
+		
+		
+		//FileWriter fileWriter = new FileWriter("InitDestroyCounter.initial");
 		//Requete
 		for(int z = 0 ; z < nbr - 1 ; z++)
 		{
@@ -124,6 +130,14 @@ public class WhoTweetItServlet extends HttpServlet {
 			    	resp.getWriter().println("Date : " + tweet.getCreatedAt());
 			    	resp.getWriter().println("");
 			    	i = i +1;
+			    	/*contenuquiz = contenuquiz +"\"tweets\" : [{";
+			    	contenuquiz = contenuquiz + "\"tweet\" :\"" + tweet.getText() + "\"";
+			    	contenuquiz = contenuquiz + "\"r1\" : \"Justin Bieber\",\"r2\" : \"Miley Cyrus\",";
+			    	contenuquiz = contenuquiz + "\"r3\" : \"" +   tweet.getUser().getName() + "\",\"answer\" : \"" +  tweet.getUser().getName() + "\"},";
+			           */
+			           
+			           
+			           
 			    }
 			} catch (TwitterException e) {
 				// TODO Auto-generated catch block
