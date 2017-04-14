@@ -31,7 +31,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 
 @SuppressWarnings("serial")
-public class WhoTweetItServlet extends HttpServlet {
+public class LoadMusicServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
 		//Authentification à notre app twitter
@@ -45,13 +45,13 @@ public class WhoTweetItServlet extends HttpServlet {
 		Twitter twitter = tf.getInstance();
 		TweetEntityEndpoint tEp = new TweetEntityEndpoint();
 		TweetEntity newTweet = new TweetEntity();
-		Long i = 1L;
+		Long i = 31L;
 		String MediaTest[] = new String[99999];// = {"JLMelenchon","EmmanuelMacron","MLP_Officiel","benoithamon","fhollande"};
 		
 		
 		String chaine="";
 		//String fichier ="C:\\Users\\Théo\\Desktop\\media.txt";
-		String fichier = "/WEB-INF/media.txt";
+		String fichier = "/WEB-INF/music.txt";
 		
 			
 		int nbr = 0;		
@@ -63,7 +63,7 @@ public class WhoTweetItServlet extends HttpServlet {
 			
 
 			//InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream("/WEB-INF/media.txt"); 
-			InputStream inputStream = new FileInputStream(new File("WEB-INF/media.txt"));
+			InputStream inputStream = new FileInputStream(new File("WEB-INF/music.txt"));
 
 			BufferedReader br=new BufferedReader(new InputStreamReader(inputStream)); 
 			String ligne;
@@ -85,7 +85,7 @@ public class WhoTweetItServlet extends HttpServlet {
 		//resp.getWriter().println(chaine);
 		//Requete
 		//Suppression des anciens tweet
-		for(long x = 1; x <= 100; x++)
+		for(long x = 31; x <= 45; x++)
 		{
 			System.out.println("Lu : "+x);
 			try{
@@ -96,19 +96,13 @@ public class WhoTweetItServlet extends HttpServlet {
 			}
 		}
 		
-		String contenuquiz = "\"category\" : \"music\",\"";
+
 		System.out.println("<------------- HERE1 ------------>");
-		
-		
-		
-		
-		
-		//FileWriter fileWriter = new FileWriter("InitDestroyCounter.initial");
 		//Requete
-		for(int z = 0 ; z < nbr - 1 ; z++)
+		for(int z = 0 ; z <= nbr - 1 ; z++)
 		{
 			try {
-				Paging paging = new Paging(1, 10);
+				Paging paging = new Paging(1, 3);
 				List<Status> tweets = twitter.getUserTimeline(MediaTest[z],paging);
 			    for (Status tweet : tweets) {
 			    	newTweet.setId(i);
@@ -118,20 +112,13 @@ public class WhoTweetItServlet extends HttpServlet {
 			    	newTweet.setCategory("Media");
 			    	newTweet.setDate(tweet.getCreatedAt());
 			    	tEp.insertTweetEntity(newTweet);
+			    	System.out.println(tweet.getUser().getName());
 			    	resp.getWriter().println("@" + tweet.getUser().getScreenName());
 			    	resp.getWriter().println("Nom : " +  tweet.getUser().getName());
 			    	resp.getWriter().println("Tweet :" + tweet.getText());
 			    	resp.getWriter().println("Date : " + tweet.getCreatedAt());
 			    	resp.getWriter().println("");
 			    	i = i +1;
-			    	/*contenuquiz = contenuquiz +"\"tweets\" : [{";
-			    	contenuquiz = contenuquiz + "\"tweet\" :\"" + tweet.getText() + "\"";
-			    	contenuquiz = contenuquiz + "\"r1\" : \"Justin Bieber\",\"r2\" : \"Miley Cyrus\",";
-			    	contenuquiz = contenuquiz + "\"r3\" : \"" +   tweet.getUser().getName() + "\",\"answer\" : \"" +  tweet.getUser().getName() + "\"},";
-			           */
-			           
-			           
-			           
 			    }
 			} catch (TwitterException e) {
 				// TODO Auto-generated catch block

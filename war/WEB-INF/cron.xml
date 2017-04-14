@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
   <cron>
-    <url>/tasks/summary</url>
-    <target>beta</target>
-    <description>daily summary job</description>
-    <schedule>every 24 hours</schedule>
+    <url>/loadcinema</url>
+    <description>daily update of the cinema's twittos</description>
+    <schedule>every day 00:00</schedule>
+  </cron>
+  <cron>
+    <url>/loadmedia</url>
+    <description>daily update of the media's twittos</description>
+    <schedule>every day 00:30</schedule>
+  </cron>
+  <cron>
+    <url>/loadmusic</url>
+    <description>daily update of the music's twittos</description>
+    <schedule>every day 01:00</schedule>
+  </cron>
+  <cron>
+    <url>/loadsport</url>
+    <description>daily update of the sport's twittos</description>
+    <schedule>every day 01:30</schedule>
   </cron>
 </cronentries>
