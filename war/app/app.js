@@ -45,6 +45,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 		var score = 0;
 		var arrayRespName = [];
 		var arrayRespScreen = [];
+		var arrayVerif = [];
 		if($routeParams.category == 'cinema'){
 			  $scope.category = 'Cinema';
 			  var resp = '{'+
@@ -99,19 +100,26 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 	  	while(obj.tweets[count_tweet] != null){
 	  		arrayRespName.push(obj.tweets[count_tweet].authorName);
 	  		arrayRespScreen.push(obj.tweets[count_tweet].authorScreen);
-	  		var r2 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
-	  		var r3 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
+	  		count_tweet++;
+	  	}
+	  	count_tweet = 0;
+	  	while(obj.tweets[count_tweet] != null){
+	  		var author = obj.tweets[count_tweet].authorName;
+	  		var stop = false;
+	  		while(stop == false){
+	  			var r2 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
+		  		var r3 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
+		  		console.log("R2 : "+r2+"  R3 : "+r3+"  auteur : "+author);
+		  		if(r2 != author && r3 != author && r2 != r3){
+		  			stop = true;
+		  		}else{
+		  			stop = false;
+		  		}
+	  		}
 	  		questions.tweets.push({"tweet":obj.tweets[count_tweet].content,"r1":obj.tweets[count_tweet].authorName,"r2":r2,"r3":r3,"answer":obj.tweets[count_tweet].authorName,"image":obj.tweets[count_tweet].urlImgAuthor});
-	  		/*questions.tweets.push("'r1' : '"+obj.tweets[count_tweet].authorName+"'");
-	  		questions.tweets.push("'r2' : '"+r2+"'");
-	  		questions.tweets.push("'r3' : '"+r3+"'");
-	  		questions.tweets.push("'answer' : '"+obj.tweets[count_tweet].authorName+"'");
-	  		questions.tweets.push("'image' : '"+obj.tweets[count_tweet].urlImgAuthor+"'");
-	  		json.sensors.push({"x":x, "y":y,"id":id});*/
 	  		count_tweet++;
 	  	}
 	  	
-	  	console.log(questions);
 
 
 		$scope.game = questions['category'];
