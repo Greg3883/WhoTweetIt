@@ -43,79 +43,95 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 		$scope.difficulty = $routeParams.difficulty;
 		$scope.category = $routeParams.category;
 		var score = 0;
-		var resp = '{' +
-        '"category" : "music",'+
-        '"tweets" : ['+ 
-           '{'+
-             '"tweet" : "Hi it\'s Rihanna !",'+
-             '"r1" : "Justin Bieber",'+
-             '"r2" : "Miley Cyrus",'+
-             '"r3" : "Rihanna",'+
-             '"answer" : "Rihanna",' +
-             '"image" : "https://pbs.twimg.com/profile_images/825885653598666753/bZhYbrfX.jpg"' +
-           '},'+
-           '{'+
-             '"tweet" : "Hi it\'s Simon !",'+
-             '"r1" : "Justin Bieber",'+
-             '"r2" : "Simon",'+
-             '"r3" : "Rihanna",'+
-             '"answer" : "Simon",' +
-             '"image" : "https://pbs.twimg.com/profile_images/776540585314422784/F68Qj8x9_400x400.jpg"' +
-           '},'+
-           '{'+
-             '"tweet" : "Hi it\'s Thomas !",'+
-             '"r1" : "Justin Bieber",'+
-             '"r2" : "Thomas",'+
-             '"r3" : "Rihanna",'+
-             '"answer" : "Thomas",' +
-             '"image" : "https://pbs.twimg.com/profile_images/809433573652451328/MVmI_MXe_400x400.jpg"' +
-           '},'+
-           '{'+
-             '"tweet" : "Hi it\'s la mère de Sylvain !",'+
-             '"r1" : "La mère de Sylvain",'+
-             '"r2" : "Miley Cyrus",'+
-             '"r3" : "Rihanna",'+
-             '"answer" : "La mère de Sylvain",' +
-             '"image" : "https://pbs.twimg.com/profile_images/607595584418136064/TigSM93l_400x400.jpg"' +
-           '}'+
-        ']}';
-		var obj = JSON.parse(resp);
-		//$scope.game = obj['category'];
-		$scope.question = obj.tweets[1].tweet;
+		var arrayRespName = [];
+		var arrayRespScreen = [];
+		if($routeParams.category == 'cinema'){
+			  $scope.category = 'Cinema';
+			  var resp = '{'+
+			  				'"tweets" : ['+ 
+			  					'{'+
+						  			'"content" : "Je vous donne rendez-vous demain matin sur @RFOfr à 8h https://t.co/JjRdEudITq",'+
+						  			'"authorScreen" : "benoithamon",'+
+						  			'"authorName" : "Benoît Hamon",'+
+						  			'"date" : "2017-04-13T21:13:30.000Z",'+
+						  			'"category" : "media",' +
+						  			'"urlImgAuthor" : "http://pbs.twimg.com/profile_images/846787408712646657/cxRnGUlS_normal.jpg"' +
+						  		 '},'+
+						  		 '{'+
+					             '"content" : "A la veille du grand rassemblement annuel d\'islamistes radicaux organisé par l’#UOIF, je réclame son interdiction ! https://t.co/k6LASfby4C",'+
+					             '"authorScreen" : "MLP_officiel",'+
+					             '"authorName" : "Marine Le Pen",'+
+					             '"date" : "2017-04-13T17:55:02.000Z",'+
+					             '"category" : "media",' +
+					             '"urlImgAuhtor" : "http://pbs.twimg.com/profile_images/806157043677724672/0Pe1Xh_U_normal.jpg"' +
+					             '},'+
+					             '{'+
+					             '"content" : "Des associations, ONG et spécialistes ont évalué notre programme. De tous côtés, nous recevons d\'excellentes notes… https://t.co/xaYG0urqGY",'+
+					             '"authorScreen" : "JLMelenchon",'+
+					             '"authorName" : "Jean-Luc Mélenchon",'+
+					             '"date" : "2017-04-13T18:33:56.000Z",'+
+					             '"category" : "media",' +
+					             '"urlImgAuhtor" : "http://pbs.twimg.com/profile_images/846345918710460416/6_IxAsw9_normal.jpg"' +
+					             '},'+
+					             '{'+
+					             '"content" : "Merci Toulouse pour votre accueil ! Maintenant, tous à l\'action, car c\'est ensemble que nous gagnerons.… https://t.co/Jn2gEq6p6X",'+
+					             '"authorScreen" : "FrancoisFillon",'+
+					             '"authorName" : "François Fillon",'+
+					             '"date" : "2017-04-13T19:23:16.000Z",'+
+					             '"category" : "media",' +
+					             '"urlImgAuhtor" : "http://pbs.twimg.com/profile_images/845229246280863745/U3jdwWGz_normal.jpg"' +
+					             '}'+
+						  ']}';			  	
+		  } else if ($routeParams.category == 'media'){
+			  $scope.category = 'Media';
+		  } else if ($routeParams.category == 'music'){
+			  $scope.category = 'Music';
+		  } else if ($routeParams.category == 'sport'){
+			  $scope.category = 'Sport';
+		  } else if ($routeParams.category == 'all'){
+			  $scope.category = 'All';
+		  }
+	  	var count_tweet = 0;
+	  	var questions = {};
+	  	questions.category = $routeParams.category;
+	  	questions.tweets = [];
+	  	var obj = JSON.parse(resp);
+	  	while(obj.tweets[count_tweet] != null){
+	  		arrayRespName.push(obj.tweets[count_tweet].authorName);
+	  		arrayRespScreen.push(obj.tweets[count_tweet].authorScreen);
+	  		var r2 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
+	  		var r3 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
+	  		questions.tweets.push({"tweet":obj.tweets[count_tweet].content,"r1":obj.tweets[count_tweet].authorName,"r2":r2,"r3":r3,"answer":obj.tweets[count_tweet].authorName,"image":obj.tweets[count_tweet].urlImgAuthor});
+	  		/*questions.tweets.push("'r1' : '"+obj.tweets[count_tweet].authorName+"'");
+	  		questions.tweets.push("'r2' : '"+r2+"'");
+	  		questions.tweets.push("'r3' : '"+r3+"'");
+	  		questions.tweets.push("'answer' : '"+obj.tweets[count_tweet].authorName+"'");
+	  		questions.tweets.push("'image' : '"+obj.tweets[count_tweet].urlImgAuthor+"'");
+	  		json.sensors.push({"x":x, "y":y,"id":id});*/
+	  		count_tweet++;
+	  	}
+	  	
+	  	console.log(questions);
+
+
+		$scope.game = questions['category'];
+		$scope.question = questions.tweets[1].tweet;
 		
 		$scope.currentPosition = 0;
 		
-		
-		
-		
-		
-		/*for(i = 1; i<= obj.tweets.length; i++)
-			{
-				$scope.question = obj.tweets[i].tweet;
-				$scope.r1 = obj.tweets[i].r1;
-				$scope.r2 = obj.tweets[i].r2;
-				$scope.r3 = obj.tweets[i].r3;
-			
-			}*/
-		
-		
 		function refreshQuestions() {
-			$scope.question = obj.tweets[$scope.currentPosition].tweet;
-			$scope.r1 = obj.tweets[$scope.currentPosition].r1;
-			$scope.r2 = obj.tweets[$scope.currentPosition].r2;
-			$scope.r3 = obj.tweets[$scope.currentPosition].r3;
-			/*$scope.image = obj.tweets[$scope.currentPosition].image;
-			$scope.hint1Shown = false;
-			$scope.hint2Shown = false;
-			$timeout(resetShake, 0);*/
+			$scope.question = questions.tweets[$scope.currentPosition].tweet;
+			$scope.r1 = questions.tweets[$scope.currentPosition].r1;
+			$scope.r2 = questions.tweets[$scope.currentPosition].r2;
+			$scope.r3 = questions.tweets[$scope.currentPosition].r3;
 		}
 		
 		refreshQuestions();
 		
 		 $scope.valider = function(reponse) {
-			 if($scope.currentPosition < obj.tweets.length)
+			 if($scope.currentPosition < questions.tweets.length)
 				 {
-					 if(reponse == obj.tweets[$scope.currentPosition].answer)
+					 if(reponse == questions.tweets[$scope.currentPosition].answer)
 						 {
 						 	$scope.test = "yes";
 						 	score = score +1;
@@ -133,31 +149,4 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 				}
 			 
 			  };
-			  
-			  
-			  
-			   /*function load() {
-					var rootApi = 'https://1-dot-whotweetit-158715.appspot.com/_ah/api';
-					gapi.client.load('scoreentityendpoint', 'v1', function() {
-						//console.log("todos api loaded");
-
-					/*	gapi.client.scoreentityendpoint.insertScore({id:123456789,score:100,name:"miam"}).execute(
-								function(resp) {
-									console.log(resp);
-								});
-
-						
-						gapi.client.scoreentityendpoint.listScore().execute(
-								function(resp) {
-									console.log(resp);
-								});*/
-					/*}, rootApi);
-				}
-			   
-			   load();*/
-			  
-			  /*blabalbal*/
-		
-		
-			
 }]);
