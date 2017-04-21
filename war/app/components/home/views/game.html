@@ -1,8 +1,10 @@
 <div class="col-lg-12 margin_50" id="home_subtitle"><span class="text_white">You will play with {{ category }}, in {{ difficulty }}</span></div>
 <div class="col-lg-12"><div id="tweet_quizz">
 <div>{{ question }}</div>
-<div><input type="radio" ng-model="r.rep" value="{{ r1 }}"> {{ r1 }} </div>
-<div><input type="radio" ng-model="r.rep" value="{{ r2 }}"> {{ r2 }} </div>
-<div><input type="radio" ng-model="r.rep" value="{{ r3 }}"> {{ r3 }} </div>     
+<div ng-if="difficulty == 'medium' || difficulty == 'easy'"><input type="radio" ng-model="r.rep" value="{{ r1 }}">{{ r1 }}</div>
+<div ng-if="difficulty == 'medium'|| difficulty == 'easy'"><input type="radio" ng-model="r.rep" value="{{ r2 }}">{{ r2 }} && {{ difficulty}} </div>
+<div ng-if="difficulty == 'medium'"><input type="radio" ng-model="r.rep" value="{{ r3 }}">{{ r3 }}</div>
+<div ng-if="difficulty == 'medium'"><input type="radio" ng-model="r.rep" value="{{ r4 }}">{{ r4 }}</div>  
+<div ng-if="difficulty == 'hard'"><input type="text" ng-model="r.rep"/></div>          
 <button ng-click="valider(r.rep)">Valider</button>{{ test }}</div></div>
 <script src="https://apis.google.com/js/client.js?onload=init"></script>

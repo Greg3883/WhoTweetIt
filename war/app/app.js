@@ -45,6 +45,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 		var score = 0;
 		var arrayRespName = [];
 		var arrayRespScreen = [];
+		var arrayRespImg = [];
 		var arrayVerif = [];
 		if($routeParams.category == 'cinema'){
 			  $scope.category = 'Cinema';
@@ -100,6 +101,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 	  	while(obj.tweets[count_tweet] != null){
 	  		arrayRespName.push(obj.tweets[count_tweet].authorName);
 	  		arrayRespScreen.push(obj.tweets[count_tweet].authorScreen);
+	  		arrayRespImg.push(obj.tweets[count_tweet].urlImgAuthor);
 	  		count_tweet++;
 	  	}
 	  	count_tweet = 0;
@@ -109,14 +111,15 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 	  		while(stop == false){
 	  			var r2 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
 		  		var r3 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
-		  		console.log("R2 : "+r2+"  R3 : "+r3+"  auteur : "+author);
-		  		if(r2 != author && r3 != author && r2 != r3){
+		  		var r4 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
+		  		console.log("test r4: "+r4);
+		  		if(r2 != author && r3 != author && r4 != author && r2 != r3 && r3 != r4 && r2 != r4){
 		  			stop = true;
 		  		}else{
 		  			stop = false;
 		  		}
 	  		}
-	  		questions.tweets.push({"tweet":obj.tweets[count_tweet].content,"r1":obj.tweets[count_tweet].authorName,"r2":r2,"r3":r3,"answer":obj.tweets[count_tweet].authorName,"image":obj.tweets[count_tweet].urlImgAuthor});
+	  		questions.tweets.push({"tweet":obj.tweets[count_tweet].content,"r1":obj.tweets[count_tweet].authorName,"r2":r2,"r3":r3,"r4":r4,"answer":obj.tweets[count_tweet].authorName,"image":obj.tweets[count_tweet].urlImgAuthor});
 	  		count_tweet++;
 	  	}
 	  	
@@ -132,9 +135,12 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 			$scope.r1 = questions.tweets[$scope.currentPosition].r1;
 			$scope.r2 = questions.tweets[$scope.currentPosition].r2;
 			$scope.r3 = questions.tweets[$scope.currentPosition].r3;
+			$scope.r4 = questions.tweets[$scope.currentPosition].r4;
 		}
 		
 		refreshQuestions();
+		
+		
 		
 		 $scope.valider = function(reponse) {
 			 if($scope.currentPosition < questions.tweets.length)
