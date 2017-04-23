@@ -112,7 +112,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 	  			var r2 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
 		  		var r3 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
 		  		var r4 = arrayRespName[Math.floor(Math.random() * arrayRespName.length)];
-		  		console.log("test r4: "+r4);
+		  		
 		  		if(r2 != author && r3 != author && r4 != author && r2 != r3 && r3 != r4 && r2 != r4){
 		  			stop = true;
 		  		}else{
@@ -140,11 +140,12 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 		
 		refreshQuestions();
 		
-		
+		$scope.name = "John Doe";
 		
 		 $scope.valider = function(reponse) {
 			 if($scope.currentPosition < questions.tweets.length)
 				 {
+				 	console.log(reponse);
 					 if(reponse == questions.tweets[$scope.currentPosition].answer)
 						 {
 						 	$scope.test = "yes";
