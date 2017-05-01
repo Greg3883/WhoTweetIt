@@ -110,7 +110,7 @@ public class LoadSportServlet extends HttpServlet {
 			    	newTweet.setAuthorScreen(tweet.getUser().getScreenName());
 			    	newTweet.setUrlImgAuthor(tweet.getUser().getProfileImageURL());;
 			    	newTweet.setContent(tweet.getText());
-			    	newTweet.setCategory("Media");
+			    	newTweet.setCategory("Sport");
 			    	newTweet.setDate(tweet.getCreatedAt());
 			    	tEp.insertTweetEntity(newTweet);
 			    	resp.getWriter().println("@" + tweet.getUser().getScreenName());

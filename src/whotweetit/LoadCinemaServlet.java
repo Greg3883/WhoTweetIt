@@ -110,7 +110,7 @@ public class LoadCinemaServlet extends HttpServlet {
 			    	newTweet.setAuthorScreen(tweet.getUser().getScreenName());
 			    	newTweet.setUrlImgAuthor(tweet.getUser().getProfileImageURL());;
 			    	newTweet.setContent(tweet.getText());
-			    	newTweet.setCategory("Media");
+			    	newTweet.setCategory("Cinema");
 			    	newTweet.setDate(tweet.getCreatedAt());
 			    	tEp.insertTweetEntity(newTweet);
 			    	System.out.println(tweet.getUser().getName());
