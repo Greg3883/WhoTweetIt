@@ -2,7 +2,8 @@ angular.module('whoTweetItApp')
     .config(function($routeProvider, $locationProvider) {
         $routeProvider
         .when("/", {
-            templateUrl : "app/components/home/views/home.view.html"
+            templateUrl : "app/components/home/views/home.view.html",
+            controller: "HomeController"
         })
         
         .when("/category", {

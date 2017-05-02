@@ -22,13 +22,37 @@ app.factory('Data', function () {
 
 
 //Controler du header
-app.controller('HeaderController', ['$scope', function($scope) {
+app.controller('HomeController', ['$scope', '$rootScope', function($scope,$rootScope) {
+	function getValue(){
+		   var value= $.ajax({ 
+		      url: 'https://1-dot-whotweetit-158715.appspot.com/_ah/api/scoreentityendpoint/v1/scoreentity/', 
+		      async: false
+		   }).responseText;
+		   return value;
+	}
+
+	var resp = getValue();
+	var obj = JSON.parse(resp);
+	var msg = "";
+	var count_tweet = 0;
+	while(obj.items[count_tweet] != null){
+		msg = msg + " || " + obj.items[count_tweet].name;
+		count_tweet ++;
+	}
+	$scope.name = "John Doe";
+	$scope.besf = msg;
+}]);
+
+
+//Controler du header
+app.controller('HeaderController', ['$scope', '$rootScope', function($scope,$rootScope) {
 	 $scope.greeting = 'Hola!';
 	 function onSignIn(googleUser) {
 		    var profile = googleUser.getBasicProfile();
 		    $scope.userId = profile.getId();
-		    $scope.userName = profile.getName();
+		    $rootScope.userName = profile.getName();
 		    $scope.userImg = profile.getImageUrl();
+		    console.log($rootScope.userName);
 		    $scope.userEmail = profile.getEmail();
 	  }
 	 window.onSignIn = onSignIn;
@@ -41,9 +65,10 @@ app.controller('DifficultyController', ['$scope','$routeParams', function($scope
 }]);
 
 //Controller du jeu
-app.controller('GameController', ['$scope','$routeParams', function($scope, $routeParams) {
+app.controller('GameController', ['$scope','$rootScope','$routeParams', function($scope, $rootScope,  $routeParams) {
 		$scope.difficulty = $routeParams.difficulty;
 		$scope.category = $routeParams.category;
+		var idInsert = Math.floor(Math.random() * 100000) + 1; 
 		var score = 0;
 		var arrayRespName = [];
 		var arrayRespScreen = [];
@@ -222,12 +247,12 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 	
 		
 	    refreshQuestions(categorie);
-		function insertScore(score, user) {
+		function insertScore(id,score, user) {
 			var rootApi = 'https://1-dot-whotweetit-158715.appspot.com/_ah/api/';
 			gapi.client.load('scoreentityendpoint', 'v1', function() {
 				console.log("todos api loaded");
 
-				gapi.client.scoreentityendpoint.insertScoreEntity({id:699,score:score,name:user}).execute(
+				gapi.client.scoreentityendpoint.insertScoreEntity({id:id,score:score,name:user}).execute(
 						function(resp) {
 							console.log(resp);
 						});
@@ -320,7 +345,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 					 else
 						{
 						 $scope.test = "Fin du jjeu. Score:" + score;
-						 insertScore(89,"zii");
+						 insertScore(idInsert,score,$rootScope.userName+idInsert);
 						}
 				}
 			};
@@ -354,7 +379,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 					 else
 						{
 						 $scope.test = "Fin du fejeu. Score:" + score;
-						 insertScore(89,"zii");
+						 insertScore(idInsert,score,$rootScope.userName+idInsert);
 						}
 				}
 			};
