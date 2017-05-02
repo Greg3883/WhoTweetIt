@@ -2,6 +2,7 @@ var app = angular.module('whoTweetItApp');
 var refreshTime = 20;
 
 
+
 //Permet de passer des variable entre 2 controlleurs
 app.factory('Data', function () {
 
@@ -221,7 +222,25 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 	
 		
 	    refreshQuestions(categorie);
-		  
+		function insertScore(score, user) {
+			var rootApi = 'https://1-dot-whotweetit-158715.appspot.com/_ah/api/';
+			gapi.client.load('scoreentityendpoint', 'v1', function() {
+				console.log("todos api loaded");
+
+				gapi.client.scoreentityendpoint.insertScoreEntity({id:699,score:score,name:user}).execute(
+						function(resp) {
+							console.log(resp);
+						});
+
+				
+				gapi.client.scoreentityendpoint.listScoreEntity().execute(
+						function(resp) {
+							console.log(resp);
+						});
+			}, rootApi);
+		}
+		
+		
 		function refreshQuestions(categorie) {
 			while($scope.currentPosition <= questions.items.length && trouve == false )
 				{
@@ -300,7 +319,8 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 						 }
 					 else
 						{
-						 $scope.test = "Fin du jeu. Score:" + score;
+						 $scope.test = "Fin du jjeu. Score:" + score;
+						 insertScore(89,"zii");
 						}
 				}
 			};
@@ -333,7 +353,8 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 						 }
 					 else
 						{
-						 $scope.test = "Fin du jeu. Score:" + score;
+						 $scope.test = "Fin du fejeu. Score:" + score;
+						 insertScore(89,"zii");
 						}
 				}
 			};
