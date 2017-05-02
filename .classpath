@@ -8,7 +8,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/twitter4j-core-4.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Bejaj/Documents/Workspace/WhoTweetIt/google-api-java-client/libs/google-api-client-1.22.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Bejaj/Documents/Workspace/WhoTweetIt/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Théo/workspace/WhoTweetIt/google-api-java-client/libs/google-api-client-1.22.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Théo/workspace/WhoTweetIt/java-json.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

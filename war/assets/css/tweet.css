@@ -19,6 +19,12 @@
 	
 }
 
+#score{
+	font-family: Champagne;
+	font-size:2vw;
+	color: white;
+}
+
 #tweet{
 	color: #1DA1F2;
 	font-weight: bold;

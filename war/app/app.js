@@ -36,11 +36,15 @@ app.controller('HomeController', ['$scope', '$rootScope', function($scope,$rootS
 	var msg = "";
 	var count_tweet = 0;
 	while(obj.items[count_tweet] != null){
-		msg = msg + " || " + obj.items[count_tweet].name;
+		if(obj.items[count_tweet].point != null)
+			{
+			msg = msg + " | " + obj.items[count_tweet].name + " - Score: " + obj.items[count_tweet].point;
+			}
+		//msg = msg + " | " + obj.items[count_tweet].name + obj.items[count_tweet].point;
 		count_tweet ++;
 	}
-	$scope.name = "John Doe";
-	$scope.besf = msg;
+	
+	$scope.besf = msg + " | ";
 }]);
 
 
@@ -252,7 +256,7 @@ app.controller('GameController', ['$scope','$rootScope','$routeParams', function
 			gapi.client.load('scoreentityendpoint', 'v1', function() {
 				console.log("todos api loaded");
 
-				gapi.client.scoreentityendpoint.insertScoreEntity({id:id,score:score,name:user}).execute(
+				gapi.client.scoreentityendpoint.insertScoreEntity({id:id,score:point,name:user}).execute(
 						function(resp) {
 							console.log(resp);
 						});
@@ -344,12 +348,11 @@ app.controller('GameController', ['$scope','$rootScope','$routeParams', function
 						 }
 					 else
 						{
-<<<<<<< HEAD
+
 						 $scope.test = "End of Game. Score: " + score;
-=======
-						 $scope.test = "Fin du jjeu. Score:" + score;
+
 						 insertScore(idInsert,score,$rootScope.userName+idInsert);
->>>>>>> origin/master
+
 						}
 				}
 			};
@@ -383,7 +386,7 @@ app.controller('GameController', ['$scope','$rootScope','$routeParams', function
 					 else
 						{
 						 $scope.test = "Fin du fejeu. Score:" + score;
-						 insertScore(idInsert,score,$rootScope.userName+idInsert);
+						 insertScore(idInsert, score,$rootScope.userName+idInsert);
 						}
 				}
 			};
