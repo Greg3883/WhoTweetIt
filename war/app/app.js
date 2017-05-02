@@ -256,7 +256,7 @@ app.controller('GameController', ['$scope','$rootScope','$routeParams', function
 			gapi.client.load('scoreentityendpoint', 'v1', function() {
 				console.log("todos api loaded");
 
-				gapi.client.scoreentityendpoint.insertScoreEntity({id:id,score:point,name:user}).execute(
+				gapi.client.scoreentityendpoint.insertScoreEntity({id:id,point:score,name:user}).execute(
 						function(resp) {
 							console.log(resp);
 						});
