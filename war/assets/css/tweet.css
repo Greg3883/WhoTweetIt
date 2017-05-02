@@ -1,9 +1,66 @@
 #tweet_quizz{
-	height:25vw;
+	height:30vw;
 	width:35vw;
-	background-color:#ffffff;
-	border-radius: 5px;
-	border:1px solid #D8DCDE;
+	/*background-color:#ffffff;*/
+	border-radius: 10px;
+	border:5px solid #D8DCDE;
 	display: block;
     margin: 0 auto;
+    padding-top: 10;
+    font-family: Champagne;
+    font-size:1.5vw;
+    color: white;
+    padding: 1vw;
 }
+
+#rep{
+	text-align:center;
+	font-size:3vw;
+	
+}
+
+#tweet{
+	color: #1DA1F2;
+	font-weight: bold;
+	font-family: Helvetica Neue;
+}
+
+#whotweet{
+	text-align:center;
+}
+
+#difficulty{
+	
+}
+
+#answr{
+	color:black;
+}
+
+#button_valider {
+	border:3px groove #ecf0f1;
+	text-align:center;
+	font-family: Champagne;
+	font-size:2vw;
+	color:#ecf0f1;
+	height:4vw;
+	width:8vw;
+	display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    cursor: pointer ; }
+
+
+#button_valider:hover {
+	border:3px solid #2c3e50;
+    background-color:#ecf0f1;
+	text-align:center;
+	color:#2c3e50;
+	height:4vw;
+	width:8vw;
+	display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    cursor: pointer ;
+}
+

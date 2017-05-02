@@ -1,13 +1,14 @@
 <div class="col-lg-12 margin_50" id="home_subtitle"><span class="text_white">You will play with {{ category }}, in {{ difficulty }}</span></div>
 <div class="col-lg-12"><div id="tweet_quizz">
-	<div>{{ question }}</div>
-	<div ng-show="difficulty == 'medium' || difficulty == 'easy'"><input type="radio" id="r1" ng-model="r.rep" value="{{ r1 }}">{{ r1 }}</div>
-	<div ng-show="difficulty == 'medium'|| difficulty == 'easy'"><input type="radio" id="r2" ng-model="r.rep" value="{{ r2 }}">{{ r2 }} </div>
-	<div ng-show="difficulty == 'medium'"><input type="radio"  id="r3" ng-model="r.rep" value="{{ r3 }}">{{ r3 }}</div>
-	<div ng-show="difficulty == 'medium'"><input type="radio" id="r4" ng-model="r.rep" value="{{ r4 }}">{{ r4 }}</div>  
-	<div ng-show="difficulty == 'hard'"><input id="rep" ng-model="r.rep"><button ng-click="validerH(r.rep)">Valider</button></div> 
-	<div ng-show="difficulty != 'hard'"><button   ng-click="valider(r.rep)" >Valider</button></div>
-	{{ test }}</div></div>
+	<div id="whotweet">Who tweet it? </div>
+	<div id="tweet">{{ question }}</div>
+	<div ng-show="difficulty == 'medium' || difficulty == 'easy'"><input type="radio" id="r1" ng-model="r.rep" value="{{ r1 }}"> {{ r1 }}</div>
+	<div ng-show="difficulty == 'medium'|| difficulty == 'easy'"><input type="radio" id="r2" ng-model="r.rep" value="{{ r2 }}"> {{ r2 }} </div>
+	<div ng-show="difficulty == 'medium'"><input type="radio"  id="r3" ng-model="r.rep" value="{{ r3 }}"> {{ r3 }}</div>
+	<div ng-show="difficulty == 'medium'"><input type="radio" id="r4" ng-model="r.rep" value="{{ r4 }}"> {{ r4 }}</div>  
+	<div ng-show="difficulty == 'hard'"><input id="answr" ng-model="r.rep"><div   ng-click="valider(r.rep)" id="button_valider" >Valider</div></div> 
+	<div ng-show="difficulty != 'hard'"><div   ng-click="valider(r.rep)" id="button_valider" >Valider</div></div>
+	<div id="rep"> {{ test }}</div></div></div>
 <script>
 
 	/*	function test()

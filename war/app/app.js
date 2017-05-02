@@ -272,7 +272,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 				var rep3 = document.getElementById('r3').checked;
 				var rep4 = document.getElementById('r4').checked;
 				
-				if  (rep1 == false  && rep2 == false && rep3 == false && rep4 == false) 
+				if  (rep1 == false  && rep2 == false && rep3 == false && rep4 == false && $scope.difficulty !="hard" ) 
 				{
 					alert("Please select a response");
 				}
@@ -287,12 +287,12 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 						 {
 							 if(reponse == questions.items[$scope.currentPosition].answer)
 								 {
-								 	$scope.test = "yes";
+								 	$scope.test = "Right answer!";
 								 	score = score +1;
 								 }
 							 else
 								 {
-									$scope.test = "no";
+									$scope.test = "Wrong answer!";
 								 }
 							 $scope.currentPosition = $scope.currentPosition +1;
 							 
@@ -300,7 +300,7 @@ app.controller('GameController', ['$scope','$routeParams', function($scope, $rou
 						 }
 					 else
 						{
-						 $scope.test = "Fin du jeu. Score:" + score;
+						 $scope.test = "End of Game. Score: " + score;
 						}
 				}
 			};
